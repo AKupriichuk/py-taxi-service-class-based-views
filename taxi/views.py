@@ -19,15 +19,15 @@ def index(request):
 class ManufacturerListView(ListView):
     model = Manufacturer
     context_object_name = "manufacturer_list"
-    #template_name = "taxi/manufacturer_list.html"
+    # template_name = "taxi/manufacturer_list.html"
     queryset = Manufacturer.objects.order_by("name")
     paginate_by = 5
 
 
 class CarListView(ListView):
-    model = Car #set
+    model = Car  # set
     context_object_name = "car_list"
-    queryset = Car.objects.select_related("manufacturer").order_by("model")#operation with bd n+1
+    queryset = Car.objects.select_related("manufacturer").order_by("model")
     paginate_by = 5
 
 
